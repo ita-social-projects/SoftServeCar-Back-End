@@ -340,7 +340,7 @@ namespace Car.UnitTests.Services
         [Xunit.Theory]
         [AutoEntityData]
         public async Task DeleteNotificationsAsync_WhenNotificaionsNotNull_SavesChangesOnce(
-            IEnumerable<NotificationDto> notificationsToDelete)
+            IEnumerable<int> notificationsToDelete)
         {
             // Arrange
 
@@ -357,7 +357,7 @@ namespace Car.UnitTests.Services
             // Arrange
 
             // Act
-            await notificationService.DeleteNotificationsAsync((IEnumerable<NotificationDto>)null);
+            await notificationService.DeleteNotificationsAsync((IEnumerable<int>)null);
 
             // Assert
             notificationRepository.Verify(r => r.SaveChangesAsync(), Times.Never);
